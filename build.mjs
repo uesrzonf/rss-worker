@@ -40,3 +40,4 @@ if (result.metafile) {
 	// use https://esbuild.github.io/analyze/ to analyses
 	await fs.writeFile('./dist/metafile.json', JSON.stringify(result.metafile));
 }
+external: ['cloudflare:sockets'],
