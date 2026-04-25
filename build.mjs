@@ -4,6 +4,7 @@ import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfil
 
 function buildWorker({ entry, out, debug, external } = {}) {
 	return esbuild.build({
+		external: ['cloudflare:sockets'],
 		plugins: [NodeModulesPolyfillPlugin()],
 		platform: 'browser',
 		conditions: ['worker', 'browser'],
@@ -40,4 +41,3 @@ if (result.metafile) {
 	// use https://esbuild.github.io/analyze/ to analyses
 	await fs.writeFile('./dist/metafile.json', JSON.stringify(result.metafile));
 }
-external: ['cloudflare:sockets'],
